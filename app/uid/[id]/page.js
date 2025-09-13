@@ -79,7 +79,7 @@ export default function UidPage() {
         <footer className="w-full text-center bg-[#F0F4F8]">
           <div className="flex flex-col items-center">
             <p className="text-[14px] text-gray-900 w-fulll mb-4">
-              "အောင်လက်မှတ်ပါ အချက်အလက်များနှင့် အထက်ဖော်ပြပါ အချက်အလက်များ
+              အောင်လက်မှတ်ပါ အချက်အလက်များနှင့် အထက်ဖော်ပြပါ အချက်အလက်များ
               ကွဲလွဲမှုရှိလျင်{" "}
               <a
                 href="mailto:qr@myanmarexam.org"
@@ -87,10 +87,10 @@ export default function UidPage() {
               >
                 qr@myanmarexam.org
               </a>
-              သို့ ဆက်သွယ် ဆောင်ရွက်နိုင်ပါသည်။"
+              သို့ ဆက်သွယ် ဆောင်ရွက်နိုင်ပါသည်။
             </p>
             <p className="text-sm text-gray-900">
-              "If the details on the certificate differ from the above
+              If the details on the certificate differ from the above
               information, kindly reach out to{" "}
               <a
                 href="mailto:qr@myanmarexam.org"
@@ -98,7 +98,7 @@ export default function UidPage() {
               >
                 qr@myanmarexam.org
               </a>
-              ."
+              .
             </p>
           </div>
           <div className="w-full mt-4 bg-white border-gray-300 p-4">
