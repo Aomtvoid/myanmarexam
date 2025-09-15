@@ -39,23 +39,23 @@ const SubjectCard = () => {
   const subjects = [
     {
       compilation: "STEAMS-1",
-      myanmar: "မြန်မာစာ၊ အင်္ဂလိပ်စာ၊ သင်္ချာ၊ ဓာတုဗေဒ၊ ရူပဗေဒ၊ ဇီဝဗေဒ",
+      myanmar: "မြန်မာစာ၊ အင်္ဂလိပ်စာ ၊ သင်္ချာ ၊ ဓါတုဗေဒ ၊ ရူပဗေဒ ၊ ဇီဝဗေဒ",
       english: "Myanmar, English, Mathematics, Chemistry, Physics, Biology",
     },
     {
       compilation: "STEAMS-2",
-      myanmar: "မြန်မာစာ၊ အင်္ဂလိပ်စာ၊ သင်္ချာ၊ ဓာတုဗေဒ၊ ရူပဗေဒ၊ ဘောဂဗေဒ",
+      myanmar: "မြန်မာစာ၊ အင်္ဂလိပ်စာ ၊ သင်္ချာ ၊ ဓါတုဗေဒ ၊ ရူပဗေဒ ၊ ဘောဂဗေဒ",
       english: "Myanmar, English, Mathematics, Chemistry, Physics, Economics",
     },
     {
       compilation: "STAMS-1",
-      myanmar: "မြန်မာစာ၊ အင်္ဂလိပ်စာ၊ သင်္ချာ၊ ပထဝီဝင်၊ သမိုင်း၊ ဘောဂဗေဒ",
+      myanmar: "မြန်မာစာ၊ အင်္ဂလိပ်စာ ၊ သင်္ချာ ၊ ပထဝီဝင် ၊ သမိုင်း ၊ ‌ဘောဂဗေဒ",
       english: "Myanmar, English, Mathematics, Geography, History, Economics",
     },
     {
       compilation: "STAMS-2",
       myanmar:
-        "မြန်မာစာ၊ အင်္ဂလိပ်စာ၊ သင်္ချာ၊ မြန်မာရွေးချယ်၊ လူမှုရေးသိပ္ပံ၊ ဘောဂဗေဒ",
+        "မြန်မာစာ၊ အင်္ဂလိပ်စာ ၊ သင်္ချာ ၊ စိတ်ကြိုက်မြန်မာစာ ၊ လူမှုရေးသိပ္ပံ ၊ ဘောဂဗေဒ",
       english:
         "Myanmar, English, Mathematics, Selected Myanmar, Social Science, Economics",
     },

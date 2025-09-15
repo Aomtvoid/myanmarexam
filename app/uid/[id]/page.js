@@ -69,7 +69,7 @@ export default function UidPage() {
         </h1>
         <p className="lg:text-2xl text-base">Department of Myanmar Examinations</p>
         <p className="font-bold font-mono lg:text-xl lg:px-0 px-4 text-red-500">
-          If you believe there is an error, please get in touch with
+          If you believe there is an error, please get in touch with{" "}
           <a className="text-blue-500" href="mailto:qr@myanmarexam.org">
             qr@myanmarexam.org.
           </a>
