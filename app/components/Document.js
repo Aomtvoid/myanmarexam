@@ -56,20 +56,20 @@ const Document = () => {
       <SubjectCard />
       <div className="py-4 text-center flex flex-col gap-4 text-sm lg:px-0 px-2 leading-6">
         <p>
-          "အောင်လက်မှတ်ပါ အချက်အလက်များနှင့် အထက်ဖော်ပြပါ အချက်အလက်များ
+          အောင်လက်မှတ်ပါ အချက်အလက်များနှင့် အထက်ဖော်ပြပါ အချက်အလက်များ
           ကွဲလွဲမှုရှိလျင်{" "}
           <a className="text-blue-700" href="mailto:qr@myanmarexam.org">
             qr@myanmarexam.org
           </a>
-          သို့ ဆက်သွယ် ဆောင်ရွက်နိုင်ပါသည်။"
+          သို့ ဆက်သွယ် ဆောင်ရွက်နိုင်ပါသည်။
         </p>
         <p>
-          "If the details on the certificate differ from the above information,
+          If the details on the certificate differ from the above information,
           kindly reach out to
           <a className="text-blue-700" href="mailto:qr@myanmarexam.org">
             qr@myanmarexam.org
           </a>
-          ."
+          .
         </p>
       </div>
       <div className="p-4 text-center text-slate-700 bg-white w-full">
