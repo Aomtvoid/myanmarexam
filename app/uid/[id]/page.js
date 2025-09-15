@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import Header from "../../components/Header";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import Document from "@/app/components/Document";
 
 export default function UidPage() {
@@ -25,22 +25,23 @@ export default function UidPage() {
   }, []);
 
   const generateCaptcha = () => {
-    const num = Math.floor(100000 + Math.random() * 900000).toString();
-    setCaptcha(num);
+  const num = Math.floor(100000 + Math.random() * 900000).toString();
+  setCaptcha(num);
 
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
+  const canvas = canvasRef.current;
+  const ctx = canvas.getContext("2d");
 
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = "#E1E5EC";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  const fontSize = window.innerWidth < 640 ? 14 : 19;
 
-    ctx.font = " 19px Verdana, sans-serif";
-    ctx.fillStyle = "#E6245F";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText(num, canvas.width / 2, canvas.height / 2);
-  };
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  ctx.font = `${fontSize}px Verdana, sans-serif`;
+  ctx.fillStyle = "#E6245F";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  ctx.fillText(num, canvas.width / 2, canvas.height / 2);
+};
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -55,95 +56,64 @@ export default function UidPage() {
 
   if (notMatch) {
     return (
-    <main className="h-screen flex flex-col items-center bg-[#F0F4F8] p-10">
-        <Header />
+      <div className="h-screen justify-center items-center w-full flex flex-col gap-4 text-center bg-slate-100">
+        <Image
+          className="lg:w-60 w-28 lg:-mt-[12rem]"
+          src="/dme-logo.png"
+          width={320}
+          height={120}
+          alt="Department of Myanmar Examinations"
+        />
+        <h1 className="lg:text-2xl text-base font-bold">
+          မြန်မာနိုင်ငံစာစစ်ဦးစီးဌာန
+        </h1>
+        <p className="lg:text-2xl text-base">Department of Myanmar Examinations</p>
         <p className="font-bold font-mono lg:text-xl lg:px-0 px-4 text-red-500">
-          If you believe there is an error, please get in touch with{" "}
-           <a
-                href="mailto:qr@myanmarexam.org"
-                className="text-blue-600 hover:underline"
-              >
-                qr@myanmarexam.org.
-              </a>
+          If you believe there is an error, please get in touch with
+          <a className="text-blue-500" href="mailto:qr@myanmarexam.org">
+            qr@myanmarexam.org.
+          </a>
         </p>
-      </main>
+      </div>
     );
   }
 
   if (showDocument) {
-    return (
-      <>
-        <main className="min-h-screen flex flex-col items-center justify-center bg-[#F0F4F8] p-4 sm:p-10">
-          <Document />
-        </main>
-        <footer className="w-full text-center bg-[#F0F4F8]">
-          <div className="flex flex-col items-center">
-            <p className="text-[14px] text-gray-900 w-fulll mb-4">
-              အောင်လက်မှတ်ပါ အချက်အလက်များနှင့် အထက်ဖော်ပြပါ အချက်အလက်များ
-              ကွဲလွဲမှုရှိလျင်{" "}
-              <a
-                href="mailto:qr@myanmarexam.org"
-                className="text-blue-600 hover:underline"
-              >
-                qr@myanmarexam.org
-              </a>
-              သို့ ဆက်သွယ် ဆောင်ရွက်နိုင်ပါသည်။
-            </p>
-            <p className="text-sm text-gray-900">
-              If the details on the certificate differ from the above
-              information, kindly reach out to{" "}
-              <a
-                href="mailto:qr@myanmarexam.org"
-                className="text-blue-600 hover:underline"
-              >
-                qr@myanmarexam.org
-              </a>
-              .
-            </p>
-          </div>
-          <div className="w-full mt-4 bg-white border-gray-300 p-4">
-            <p className=" text-gray-600">
-              Copyright. © 2024 All rights reserved. Department of Myanmar
-              Examinations.
-            </p>
-          </div>
-        </footer>
-      </>
-    );
+    return <Document />;
   }
 
   return (
-    <main className="max-h-screen flex flex-col items-center justify-center bg-[#F0F4F8] p-10">
+    <main className="h-screen w-full flex flex-col justify-center items-center bg-slate-100 lg:px-0 px-4">
       <Header />
-      <div className="bg-[#E1E5EC] rounded-md p-6 w-full max-w-[430px] shadow-sm text-center border border-gray-400/80">
+      <div className="bg-slate-200 p-5 mt-4 rounded ring-1 ring-slate-400 lg:w-2/6 w-full flex flex-col justify-center items-center">
         <canvas
           ref={canvasRef}
-          width={120}
-          height={30}
-          className="mx-auto"
+          width={200}
+          height={40}
+          className="p-2 w-52 object-contain bg-transparent"
         ></canvas>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="flex flex-col gap-2 w-full">
           <input
             type="text"
             placeholder="အထက်ပါ နံပါတ်အား ရိုက်ထည့်ပါ"
-            className="w-full text-16 px-2 py-3 bg-white text-gray-700 text-left rounded-sm mb-2 border border-[#DDE0E7] outline-none focus:border-blue-700 focus:ring-2 focus:ring-blue-700"
+            className="p-3 w-full rounded bg-slate-100 ring-slate-200 focus:outline-blue-700"
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
           />
 
           <button
             type="submit"
-            className="w-full bg-[#1E3A8A] text-white py-3 rounded-sm hover:opacity-90 transition"
+            className="py-3 px-6 bg-blue-900 text-slate-50 w-full rounded"
           >
             Submit
           </button>
         </form>
       </div>
 
-      <p className="text-[14px] mt-6 text-center text-black fixed bottom-2">
+      <p className="absolute bottom-0 text-sm p-2 text-center">
         Copyright. © 2024 All rights reserved. Department of Myanmar
-        Examinations.
+        Examinations.{" "}
       </p>
     </main>
   );

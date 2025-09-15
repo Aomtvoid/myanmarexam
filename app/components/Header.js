@@ -2,21 +2,21 @@ import Image from "next/image";
 
 const Header = () => {
   return (
-    <>
+    <div className="flex flex-col text-center justify-center items-center gap-4">
       <Image
         src="/dme-logo.png"
         alt="Department of Myanmar Examinations"
-        className=""
-        width={320}
-        height={320}
+        width={320} // for lg:w-80
+        height={120}
+        className="lg:w-80 w-40 lg:mb-6 mb-4"
       />
-      <h1 className="text-[24px] font-extrabold text-center mb-4 mt-10 leading-tight text-[#10172B]">
+      <h1 className="lg:text-2xl text-base font-bold text-slate-900">
         မြန်မာနိုင်ငံစာစစ်ဦးစီးဌာန
       </h1>
-      <h2 className="lg:text-2xl text-base mb-4">
+      <h2 className="lg:text-2xl text-base">
         Department of Myanmar Examinations
       </h2>
-    </>
+    </div>
   );
 };
 
