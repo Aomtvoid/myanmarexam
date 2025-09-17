@@ -1,12 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Header from "../../components/Header";
-import { usePathname, useSearchParams } from "next/navigation";
+import { useParams, usePathname, useSearchParams } from "next/navigation";
 import Document from "@/app/components/Document";
 
-export default function UidPage() {
+export default function UidPage({params}) {
+  const allowedUid = "xy9E0t1yWHIabEbNlawEdA";
   const [captcha, setCaptcha] = useState("");
   const [userInput, setUserInput] = useState("");
   const [showDocument, setShowDocument] = useState(false);
@@ -14,6 +15,7 @@ export default function UidPage() {
   const canvasRef = useRef(null);
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const {id} = useParams();
 
   useEffect(() => {
     setShowDocument(false);
@@ -25,6 +27,7 @@ export default function UidPage() {
   }, []);
 
   const generateCaptcha = () => {
+  if (!canvasRef.current) return; 
   const num = Math.floor(100000 + Math.random() * 900000).toString();
   setCaptcha(num);
 
@@ -78,8 +81,30 @@ export default function UidPage() {
     );
   }
 
-  if (showDocument) {
+  if (showDocument &&  id === allowedUid) {
     return <Document />;
+  }else if(showDocument && id!== allowedUid){
+     return (
+      <div className="h-screen justify-center items-center w-full flex flex-col gap-4 text-center bg-slate-100">
+        <Image
+          className="lg:w-60 w-28 lg:-mt-[12rem]"
+          src="/dme-logo.png"
+          width={320}
+          height={120}
+          alt="Department of Myanmar Examinations"
+        />
+        <h1 className="lg:text-2xl text-base font-bold">
+          မြန်မာနိုင်ငံစာစစ်ဦးစီးဌာန
+        </h1>
+        <p className="lg:text-2xl text-base">Department of Myanmar Examinations</p>
+        <p className="font-bold font-mono lg:text-xl lg:px-0 px-4 text-red-500">
+          If you believe there is an error, please get in touch with{" "}
+          <a className="text-blue-500" href="mailto:qr@myanmarexam.org">
+            qr@myanmarexam.org.
+          </a>
+        </p>
+      </div>
+    );
   }
 
   return (
