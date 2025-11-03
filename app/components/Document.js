@@ -1,18 +1,8 @@
 import Image from "next/image";
 import SubjectCard from "./Subject";
 
-const Document = () => {
-  const info = {
-    လက်မှတ်အမှတ်: "၃၁၈၉၇၀",
-    အောင်မြင်ခုနှစ်: "၂၀၂၅",
-    ခုံနံပါတ်: "မနမ ၈၈၃",
-    အမည်: "မောင်သက်ဘုန်းနိုင်",
-    မွေးသက္ကရာဇ်: "၃၁-၃-၂၀၀၆",
-    အဖအမည်: "ဦးညွန့်လှိင်",
-    အမိအမည်: "ဒေါ်အေးစန္ဒာ",
-    ဘာသာတွဲ: "STEAMS-2",
-    ဂုဏ်ထူးရဘာသာများ: "-",
-  };
+const Document = ({ userInfo }) => {
+  const { _id, uid, qrCode, ...publicUser } = userInfo;
 
   return (
     <div className="w-full flex flex-col justify-center items-center bg-slate-100">
@@ -42,7 +32,7 @@ const Document = () => {
           အောင်လက်မှတ်အချက်အလက်များ
         </h2>
         <div className="flex flex-col justify-center divide-y-2 divide-dotted lg:px-0 px-4">
-          {Object.entries(info).map(([key, value]) => (
+          {Object.entries(publicUser).map(([key, value]) => (
             <div key={key} className="grid grid-cols-3 py-2">
               <p className="">{key}</p>
 
